@@ -1,26 +1,46 @@
-import React from "react";
+import React, {useState} from "react";
+import { TiDeleteOutline } from "react-icons/ti";
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
 
-//create your first component
 const Home = () => {
+const [item, setItem] = useState("")
+const [toDos, setTodos] = useState([])
+
+
+	const handleEnter = (e) =>{
+		if(e.key === "Enter"){
+		setTodos([...toDos, item])
+		setItem("")
+		}
+	}
+
+	const hansdleDelete = (i) => {
+		const newTodos = toDos.filter((item, index)=>{
+			index !== i
+		})
+
+		setTodos(newTodos)
+	}
+
+
 	return (
-		<div className="text-center">
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
-		</div>
-	);
+	 <div className="container">.
+		<h1>Todos List</h1>
+			<div>
+			<ul>
+				<li><input type="text" placeholder="Agregar nueva tarea" onChange={(e)=>setItem(e.target.value)} value={item} onKeyDown={(e)=>handleEnter(e)}/></li>
+				{toDos && toDos.map((item, index) =>(
+					<li key={index}>{item}<TiDeleteOutline onClick={() => hansdleDelete(index)} /></li>
+				))}
+				<li>{toDos.length} items faltantes</li>
+		        
+			</ul>
+			</div>
+		
+	 </div>
+	)
+
+	
 };
 
 export default Home;
