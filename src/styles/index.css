@@ -10,3 +10,43 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
+body {
+    margin-top: 50px;
+    background-color:whitesmoke;
+    display: flex;
+    justify-content: center;
+}
+
+ul li {
+    border: 1px solid grey;
+    list-style: none;
+    padding: 10px;
+    width: 500px;
+    background-color: white;
+    box-shadow:
+    0 1px 1px rgba(0, 0, 0, 0.15),
+    0 10px 0 -5px #eee,
+    0 10px 1px -4px rgba(0, 0, 0, 0.15),
+    0 20px 0 -10px #eee,
+    0 20px 1px -9px rgba(0, 0, 0, 0.15);
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 100px;
+    font-weight: lighter;
+    color: grey;
+}
+i {
+    color: lightgrey;
+    font-size: 20px;
+}
+.faltantes{
+    font-size: 14px;
+}

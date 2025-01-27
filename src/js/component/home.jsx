@@ -15,18 +15,14 @@ const [toDos, setTodos] = useState([])
 	}
 
 	const hansdleDelete = (i) => {
-		const newTodos = toDos.filter((item, index)=>{
-			index !== i
-		})
-
-		setTodos(newTodos)
+		setTodos(toDos.filter((_, index) => index !== i))
 	}
 
 
 	return (
-	 <div className="container">.
+	 <div className="container">
 		<h1>Todos List</h1>
-			<div>
+			<div className="lista-contenedor">
 			<ul>
 				<li><input type="text" placeholder="Agregar nueva tarea" onChange={(e)=>setItem(e.target.value)} value={item} onKeyDown={(e)=>handleEnter(e)}/></li>
 				{toDos && toDos.map((item, index) =>(
